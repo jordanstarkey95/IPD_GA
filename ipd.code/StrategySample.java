@@ -77,8 +77,8 @@ public class StrategySample extends Strategy
     {
         int strategyIndex = getStrategyIndex();
         char strategyChar = strategicMoves.charAt(strategyIndex);
-        int move = strategyChar == 'C'? 1:0;
-        System.out.println(Arrays.toString(memory) + ", " + strategyIndex + ", " + move);
+        int move = ((strategyChar == 'C')? 1:0);
+        //System.out.println(Arrays.toString(memory) + ", " + strategyIndex + ", " + move);
         return move;
     }
     
