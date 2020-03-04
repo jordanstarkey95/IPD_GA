@@ -1,44 +1,51 @@
+
 /**
  * Class containing the tit-for-two-tats strategy.
+ *
  * @author	081028AW
  */
 public class StrategyTitForTwoTats extends Strategy
-   {
-  /**
-   * Encoding for tit-for-tat strategy.
-   */
+{
 
-   int numDefects;
+    /**
+     * Encoding for tit-for-tat strategy.
+     */
 
-  // 0 = defect, 1 = cooperate
+    int numDefects;
 
-   public StrategyTitForTwoTats()
-      {
-      name = "Tit for Two Tats";
-      opponentLastMove = 1;
-      numDefects = 0;
-      }  /* StrategyTitForTwoTats */
+    // 0 = defect, 1 = cooperate
+    public StrategyTitForTwoTats()
+    {
+        name = "Tit for Two Tats";
+        opponentLastMove = 1;
+        numDefects = 0;
+    }
 
-   public int nextMove()
-      {
-      if (opponentLastMove == 0)  numDefects++;
+    /* StrategyTitForTwoTats */
 
-      if (opponentLastMove == 1)
-         {
-         numDefects = 0;
-         return 1;
-         }
-      else
-         {
-         if (opponentLastMove == 0 && numDefects < 2)
+    public int nextMove()
+    {
+        if (opponentLastMove == 0)
+        {
+            numDefects++;
+        }
+
+        if (opponentLastMove == 1)
+        {
+            numDefects = 0;
             return 1;
-         else  
-            {
+        }
+        else if (opponentLastMove == 0 && numDefects < 2)
+        {
+            return 1;
+        }
+        else
+        {
             return 0;
-            }
-         }
+        }
 
-      }  /* nextMove */
+    }
+    /* nextMove */
 
-   }  /* class StrategyTitForTwoTats */
-
+}
+/* class StrategyTitForTwoTats */
