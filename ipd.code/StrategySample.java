@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class StrategySample extends Strategy
 {
     final int memoryLength = 6;
-    String strategicMoves = "CDDDCCCDCDDDDDCCCCDCCDDCCCDCDCCDDCDDCCDDDCCCCDDCCDCCCCDDCCDDCCDC";
+    final String strategicMoves = "CDDDCCCDCDDDDDCCCCDCCDDCCCDCDCCDDCDDCCDDDCCCCDDCCDCCCCDDCCDDCCDC";
     int[] memory = new int[memoryLength];
     int currentIndex = 0;
     
