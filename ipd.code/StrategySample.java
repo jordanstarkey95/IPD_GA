@@ -13,10 +13,11 @@ import java.util.Arrays;
 public class StrategySample extends Strategy
 {
 
-    final int memoryLength = 6;
+    final int movesToRemeber = 3;
     final String strategicMoves = "CDDDCCCDCDDDDDCCCCDCCDDCCCDCDCCDDCDDCCDDDCCCCDDCCDCCCCDDCCDDCCDC";
-    int[] memory = new int[memoryLength];
-    int currentIndex = 0;
+    int[] memory = new int[movesToRemeber*2];
+    int currentIndexP1 = 0;
+    int currentIndexP2 = movesToRemeber;
 
     public StrategySample()
     {
@@ -38,16 +39,44 @@ public class StrategySample extends Strategy
 
         // If memory is still not full,
         // assign the move in the currentIndex.
-        if (currentIndex < memoryLength)
+        if (currentIndexP2 < memory.length)
         {
-            memory[currentIndex] = move;
-            currentIndex += 1;
+            memory[currentIndexP2] = move;
+            currentIndexP2 += 1;
             return;
         }
 
         // If memory is full, forget the oldest move.
         // move everything to the left by 1 index.
-        for (int i = 0; i < memory.length - 1; i++)
+        for (int i = movesToRemeber; i < memory.length - 1; i++)
+        {
+            memory[i] = memory[i + 1];
+        }
+
+        // Assign the move in the last index
+        memory[memory.length - 1] = move;
+    }
+    
+    @Override
+    public void saveMyMove(int move)
+    {
+        // Since 'C' is denoted by 1 and 'D' by 0,
+        // but in our memory we consider CCCCCC as index 0 and
+        // DDDDDD to the last index, here we flip the move.
+        move = 1 - move;
+
+        // If memory is still not full,
+        // assign the move in the currentIndex.
+        if (currentIndexP1 < movesToRemeber)
+        {
+            memory[currentIndexP1] = move;
+            currentIndexP1 += 1;
+            return;
+        }
+
+        // If memory is full, forget the oldest move.
+        // move everything to the left by 1 index.
+        for (int i = 0; i < movesToRemeber - 1; i++)
         {
             memory[i] = memory[i + 1];
         }
@@ -69,7 +98,7 @@ public class StrategySample extends Strategy
             }
 
             // Get the integer value of the move sequence in the memory
-            index += memory[i] * (int) (Math.pow(2, memoryLength - (i + 1)));
+            index += memory[i] * (int) (Math.pow(2, memory.length - (i + 1)));
         }
         return index;
     }

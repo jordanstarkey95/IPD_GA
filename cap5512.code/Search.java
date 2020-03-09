@@ -97,7 +97,7 @@ public class Search {
 				problem = new NumberMatch();
 		}
 		else if (Parameters.problemType.equals("OM")){
-				problem = new OneMax();
+				problem = new IPDStrategy();
 		}
 		else System.out.println("Invalid Problem Type");
 

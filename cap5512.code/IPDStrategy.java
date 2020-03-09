@@ -7,7 +7,7 @@ import java.io.*;
 import java.util.*;
 import java.text.*;
 
-public class OneMax extends FitnessFunction{
+public class IPDStrategy extends FitnessFunction{
 
 /*******************************************************************************
 *                            INSTANCE VARIABLES                                *
@@ -23,8 +23,8 @@ public class OneMax extends FitnessFunction{
 *                              CONSTRUCTORS                                    *
 *******************************************************************************/
 
-	public OneMax(){
-		name = "OneMax Problem";
+	public IPDStrategy(){
+		name = "IPD Strategy";
 	}
 
 /*******************************************************************************
@@ -62,5 +62,5 @@ public class OneMax extends FitnessFunction{
 *                             STATIC METHODS                                   *
 *******************************************************************************/
 
-}   // End of OneMax.java ******************************************************
+}   // End of IPDStrategy.java ******************************************************
 
