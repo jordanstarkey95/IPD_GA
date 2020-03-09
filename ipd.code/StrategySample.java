@@ -14,7 +14,7 @@ public class StrategySample extends Strategy
 {
 
     final int movesToRemeber = 3;
-    String strategicMoves = "0111000101111100001001100010100110110011100001100100001100110010";
+    String strategicMoves = "0100010110101000011001001111101000010011111001010101110100000000";
     int[] memory = new int[movesToRemeber*2];
     int currentIndexP1 = 0;
     int currentIndexP2 = movesToRemeber;
