@@ -14,13 +14,24 @@ public class StrategySample extends Strategy
 {
 
     final int movesToRemeber = 3;
-    final String strategicMoves = "CDDDCCCDCDDDDDCCCCDCCDDCCCDCDCCDDCDDCCDDDCCCCDDCCDCCCCDDCCDDCCDC";
+    String strategicMoves = "0111000101111100001001100010100110110011100001100100001100110010";
     int[] memory = new int[movesToRemeber*2];
     int currentIndexP1 = 0;
     int currentIndexP2 = movesToRemeber;
-
+    
     public StrategySample()
     {
+        // Initially nothing is remembered.
+        // So, the memory is initialized by -1.
+        for (int i = 0; i < memory.length; i++)
+        {
+            memory[i] = -1;
+        }
+    }
+
+    public StrategySample(String strategicMoves)
+    {
+        this.strategicMoves = strategicMoves;
         // Initially nothing is remembered.
         // So, the memory is initialized by -1.
         for (int i = 0; i < memory.length; i++)
@@ -91,7 +102,7 @@ public class StrategySample extends Strategy
         for (int i = 0; i < memory.length; i++)
         {
             // If memory is not loaded,
-            // make the same move for 'CCCCCC'
+            // make the same move for index 0 or 'CCCCCC'
             if (memory[i] == -1)
             {
                 return 0;
@@ -107,8 +118,7 @@ public class StrategySample extends Strategy
     public int nextMove()
     {
         int strategyIndex = getStrategyIndex();
-        char strategyChar = strategicMoves.charAt(strategyIndex);
-        int move = ((strategyChar == 'C') ? 1 : 0);
+        int move = Character.getNumericValue(strategicMoves.charAt(strategyIndex));
         //System.out.println(Arrays.toString(memory) + ", " + strategyIndex + ", " + move);
         return move;
     }
