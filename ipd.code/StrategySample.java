@@ -96,28 +96,30 @@ public class StrategySample extends Strategy
         memory[memory.length - 1] = move;
     }
 
-    public int getStrategyIndex()
-    {
-        int index = 0;
-        for (int i = 0; i < memory.length; i++)
-        {
-            // If memory is not loaded,
-            // make the same move for index 0 or 'CCCCCC'
-            if (memory[i] == -1)
-            {
-                return 0;
-            }
-
-            // Get the integer value of the move sequence in the memory
-            index += memory[i] * (int) (Math.pow(2, memory.length - (i + 1)));
-        }
-        return index;
-    }
-
     @Override
     public int nextMove()
     {
-        int strategyIndex = getStrategyIndex();
+        int strategyIndex = 0;
+        for (int i = 0; i < memory.length; i++)
+        {
+            // If memory is not loaded,
+            // follow "Always Cooperate" or 
+            // "Tit for tat" strategy.
+            if (memory[i] == -1)
+            {
+                // Always cooperate
+                return 0;
+                /*
+                // Cooperate in the first move
+                if(i == 0)
+                    return 0;
+                // Follow opponent's last move
+                return memory[movesToRemeber + (i-1)];
+                */
+            }
+            // Get the integer value of the move sequence in the memory
+            strategyIndex += memory[i] * (int) (Math.pow(2, memory.length - (i + 1)));
+        }
         int move = Character.getNumericValue(strategicMoves.charAt(strategyIndex));
         //System.out.println(Arrays.toString(memory) + ", " + strategyIndex + ", " + move);
         return move;
