@@ -13,11 +13,11 @@ import java.util.Arrays;
 public class StrategySample extends Strategy
 {
 
-    final int movesToRemeber = 3;
+    final int movesToRemember = 3;
     String strategicMoves = "0100010110101000011001001111101000010011111001010101110100000000";
-    int[] memory = new int[movesToRemeber*2];
+    int[] memory = new int[movesToRemember*2];
     int currentIndexP1 = 0;
-    int currentIndexP2 = movesToRemeber;
+    int currentIndexP2 = movesToRemember;
     
     public StrategySample()
     {
@@ -59,7 +59,7 @@ public class StrategySample extends Strategy
 
         // If memory is full, forget the oldest move.
         // move everything to the left by 1 index.
-        for (int i = movesToRemeber; i < memory.length - 1; i++)
+        for (int i = movesToRemember; i < memory.length - 1; i++)
         {
             memory[i] = memory[i + 1];
         }
@@ -78,7 +78,7 @@ public class StrategySample extends Strategy
 
         // If memory is still not full,
         // assign the move in the currentIndex.
-        if (currentIndexP1 < movesToRemeber)
+        if (currentIndexP1 < movesToRemember)
         {
             memory[currentIndexP1] = move;
             currentIndexP1 += 1;
@@ -87,7 +87,7 @@ public class StrategySample extends Strategy
 
         // If memory is full, forget the oldest move.
         // move everything to the left by 1 index.
-        for (int i = 0; i < movesToRemeber - 1; i++)
+        for (int i = 0; i < movesToRemember - 1; i++)
         {
             memory[i] = memory[i + 1];
         }
@@ -114,7 +114,7 @@ public class StrategySample extends Strategy
                 if(i == 0)
                     return 0;
                 // Follow opponent's last move
-                return memory[movesToRemeber + (i-1)];
+                return memory[movesToRemember + (i-1)];
                 */
             }
             // Get the integer value of the move sequence in the memory
