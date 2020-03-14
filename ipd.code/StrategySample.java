@@ -13,7 +13,7 @@ import java.util.Arrays;
 public class StrategySample extends Strategy
 {
 
-    final int movesToRemember = 3;
+    final int movesToRemember = Parameters.memoryLength;
     String strategicMoves = "0100010110101000011001001111101000010011111001010101110100000000";
     int[] memory = new int[movesToRemember*2];
     int currentIndexP1 = 0;

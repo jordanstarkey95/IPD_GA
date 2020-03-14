@@ -6,7 +6,12 @@
  ******************************************************************************
  */
 
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVPrinter;
+
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 import java.text.*;
 
@@ -82,13 +87,17 @@ public class Search
         Date startTime = dateAndTime.getTime();
 
         //  Read Parameter File
-        System.out.println("\nParameter File Name is: " + args[0] + "\n");
-        Parameters parmValues = new Parameters(args[0]);
+        if(args.length == 1)
+            new Parameters(args[0]);
 
         //  Write Parameters To Summary Output File
         String summaryFileName = Parameters.expID + "_summary.txt";
         FileWriter summaryOutput = new FileWriter(summaryFileName);
-        parmValues.outputParameters(summaryOutput);
+        Parameters.outputParameters(summaryOutput);
+
+        // Source: Homework 2
+        // Write output to csv file for plots
+        String BestAndAverageGenerationFileName = Parameters.expID + "_BestAndAverageGeneration.csv";
 
         //	Set up Fitness Statistics matrix
         fitnessStats = new double[2][Parameters.generations];
@@ -418,6 +427,43 @@ public class Search
         dateAndTime = Calendar.getInstance();
         Date endTime = dateAndTime.getTime();
         System.out.println("End  :  " + endTime);
+
+        // Source: Homework 2
+        double averageAverage;
+        double averageBest;
+
+        double stdAverageAverage;
+        double stdAverageBest;
+
+        // Usage based on https://www.callicoder.com/java-read-write-csv-file-apache-commons-csv/
+        try (
+                BufferedWriter writer = Files.newBufferedWriter(Paths.get(BestAndAverageGenerationFileName));
+                CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT.withSkipHeaderRecord());
+        )
+        {
+            for (int i = 0; i < Parameters.generations; i++)
+            {
+                averageAverage = fitnessStats[0][i] / Parameters.numRuns;
+                averageBest = fitnessStats[1][i] / Parameters.numRuns;
+
+                stdAverageAverage = Math.sqrt(
+                        Math.abs(averageAverage -
+                                averageAverage * averageAverage / Parameters.generations)
+                                /
+                                (Parameters.generations - 1)
+                );
+
+                stdAverageBest = Math.sqrt(
+                        Math.abs(averageBest -
+                                averageBest * averageBest / Parameters.generations)
+                                /
+                                (Parameters.generations - 1)
+                );
+
+                csvPrinter.printRecord(i, averageAverage, averageBest, stdAverageAverage, stdAverageBest);
+            }
+            csvPrinter.flush();
+        }
 
     } // End of Main Class
 

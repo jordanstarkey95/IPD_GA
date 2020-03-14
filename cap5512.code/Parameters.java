@@ -39,6 +39,8 @@ public class Parameters
 	public static int numGenes;
 	public static int geneSize;
 
+	public static int memoryLength;
+
 /*******************************************************************************
 *                              CONSTRUCTORS                                    *
 *******************************************************************************/
@@ -112,5 +114,39 @@ public class Parameters
 
 		output.write("\n\n");
 
+	}
+
+	// Source: Homework 2
+	public Parameters(String expID, String problemType, String dataInputFileName,
+					  int numRuns, int generations, int popSize,
+					  int selectType, int scaleType,
+					  int xoverType, double xoverRate, int mutationType, double mutationRate,
+					  long seed, int numGenes, int geneSize, int memoryLength)
+	{
+		Parameters.expID = expID;
+		Parameters.problemType = problemType;
+
+		Parameters.dataInputFileName = dataInputFileName;
+
+		Parameters.numRuns = numRuns;
+		Parameters.generations = generations;
+		Parameters.popSize = popSize;
+
+		Parameters.selectType = selectType;
+		Parameters.scaleType = selectType;
+
+		Parameters.xoverType = xoverType;
+		Parameters.xoverRate = xoverRate;
+		Parameters.mutationType = mutationType;
+		Parameters.mutationRate = mutationRate;
+
+		Parameters.seed = seed;
+		Parameters.numGenes = numGenes;
+		Parameters.geneSize = geneSize;
+
+		Parameters.memoryLength = memoryLength;
+
+		if (scaleType==0 || scaleType==2) minORmax = "max";
+		else minORmax = "min";
 	}
 }   // End of Parameters.java **************************************************
