@@ -38,6 +38,10 @@ class FitnessFunction{
 	public void doRawFitness(Chromo X){
 		System.out.println("Executing FF Raw Fitness");
 	}
+        
+        public void doRawFitness(Chromo[] X, int index){
+		System.out.println("Executing FF Raw Fitness");
+	}
 
 //  PRINT OUT AN INDIVIDUAL GENE TO THE SUMMARY FILE *********************************
 
