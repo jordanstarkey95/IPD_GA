@@ -44,19 +44,18 @@ public class IPDStrategy extends FitnessFunction
     {
 
         member[index].rawFitness = 0;
-        int numGames = Parameters.numGenes * Parameters.geneSize;
         Strategy player1, player2;
         IteratedPD ipd;
-        player1 = new StrategySample(member[index].chromo);
+        player1 = new StrategySample(member[index].chromo, Parameters.memoryLength);
         for (int i = 0; i < Parameters.popSize; i++)
         {
             if(i == index)
                 continue;
             
-            player2 = new StrategySample(member[i].chromo);
+            player2 = new StrategySample(member[i].chromo, Parameters.memoryLength);
             ipd = new IteratedPD(player1, player2);
 
-            ipd.runSteps(numGames);
+            ipd.runSteps(Parameters.numGames);
             
             member[index].rawFitness += ipd.player1Score();
         }

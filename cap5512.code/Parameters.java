@@ -39,6 +39,8 @@ public class Parameters
 	public static int numGenes;
 	public static int geneSize;
 
+	public static int numGames;
+
 	public static int memoryLength;
 
 /*******************************************************************************
@@ -68,8 +70,12 @@ public class Parameters
 		mutationRate = Double.parseDouble(parmInput.readLine().substring(30).trim());
 
 		seed = Long.parseLong(parmInput.readLine().substring(30).trim());
-		numGenes = Integer.parseInt(parmInput.readLine().substring(30).trim());
 		geneSize = Integer.parseInt(parmInput.readLine().substring(30).trim());
+
+		numGames = Integer.parseInt(parmInput.readLine().substring(30).trim());
+		memoryLength = Integer.parseInt(parmInput.readLine().substring(30).trim());
+
+		numGenes = (int) Math.pow(2, 2*memoryLength);
 
 		parmInput.close();
 
@@ -112,6 +118,9 @@ public class Parameters
 		output.write("Number of Genes/Points       :  " + numGenes + "\n");
 		output.write("Size of Genes                :  " + geneSize + "\n");
 
+		output.write("Number of Games              :  " + numGames + "\n");
+		output.write("Memory Length                :  " + memoryLength + "\n");
+
 		output.write("\n\n");
 
 	}
@@ -121,7 +130,7 @@ public class Parameters
 					  int numRuns, int generations, int popSize,
 					  int selectType, int scaleType,
 					  int xoverType, double xoverRate, int mutationType, double mutationRate,
-					  long seed, int numGenes, int geneSize, int memoryLength)
+					  long seed, int geneSize, int numGames, int memoryLength)
 	{
 		Parameters.expID = expID;
 		Parameters.problemType = problemType;
@@ -141,10 +150,13 @@ public class Parameters
 		Parameters.mutationRate = mutationRate;
 
 		Parameters.seed = seed;
-		Parameters.numGenes = numGenes;
 		Parameters.geneSize = geneSize;
 
+		Parameters.numGames = numGames;
+
 		Parameters.memoryLength = memoryLength;
+
+		Parameters.numGenes = (int) Math.pow(2, 2*memoryLength);
 
 		if (scaleType==0 || scaleType==2) minORmax = "max";
 		else minORmax = "min";

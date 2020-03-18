@@ -11,8 +11,9 @@ Crossover Rate (4)           :0.8
 Mutation Type (5)            :1
 Mutation Rate (6)            :0.005
 Random Number Seed           :75982
-Number of Genes/Points (7)   :64
 Size of Genes (18)           :1
+Number of Games              :64
+Memory Length                :4
 
 Notes:
 
