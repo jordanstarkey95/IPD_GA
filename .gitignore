@@ -4,4 +4,6 @@
 /out/
 
 *.txt
+!experiment*.txt
 *.csv
+!experiment*.csv
