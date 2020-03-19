@@ -28,7 +28,7 @@ for i=1:length(crossover_rates)
       % Author: MathWorks Support Team 
       % Date Published: 12 October 2016
       % Date Accessed: 18 March 2020
-      fid=fopen(strcat('..\experiment-2crossover_rate-', num2str(crossover_rate, 1), 'mutation_rate-', num2str(mutation_rate, 3), 'memory_length-', num2str(k), 'number_of_games-', num2str(number_of_games),  '_summary.txt')); 
+      fid=fopen(strcat('..\experiment-2crossover_rate-', num2str(crossover_rate, 1), 'mutation_rate-', num2str(mutation_rate, 3), 'memory_length-', num2str(memory_length), 'number_of_games-', num2str(number_of_games),  '_summary.txt')); 
       best_line = textscan(fid,'%s',1,'delimiter','\n', 'headerlines',linenum-1);
       best_line_char = char(best_line);
       best = strsplit(best_line_char);
