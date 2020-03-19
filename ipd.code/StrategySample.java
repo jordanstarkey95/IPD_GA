@@ -16,8 +16,8 @@ public class StrategySample extends Strategy
     int movesToRemember;
     String strategicMoves = "0100010110101000011001001111101000010011111001010101110100000000";
     int[] memory;
-    int currentIndexP1 = 0;
-    int currentIndexP2 = movesToRemember;
+    int currentIndexP1;
+    int currentIndexP2;
     
     public StrategySample()
     {
@@ -40,6 +40,8 @@ public class StrategySample extends Strategy
         {
             memory[i] = -1;
         }
+        currentIndexP1 = 0;
+        currentIndexP2 = movesToRemember;
     }
 
     @Override
