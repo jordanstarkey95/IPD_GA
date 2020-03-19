@@ -2,7 +2,7 @@
 
 % Average average fitness
 
-crossover_rates = [0.5, 0.6, 0.7, 0.8];
+crossover_rates = [0.5, 0.6, 0.7, 0.8, 0.9];
 mutation_rates = [0.001, 0.002, 0.003, 0.004, 0.005, 0.010];
 memory_lengths = [1, 2, 3, 4, 5, 6];
 number_of_games = 64;
