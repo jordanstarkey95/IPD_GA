@@ -22,19 +22,18 @@ public class StrategySample extends Strategy
     public StrategySample()
     {
         this.strategicMoves = "0100010110101000011001001111101000010011111001010101110100000000";
-        this.movesToRemember = (int) (Math.log(strategicMoves.length())/Math.log(2)/2);
         this.setMemory();
     }
     
     public StrategySample(String strategicMoves)
     {
-        this.movesToRemember = (int) (Math.log(strategicMoves.length())/Math.log(2)/2);
         this.strategicMoves = strategicMoves;
         this.setMemory();
     }
     
     public void setMemory()
     {
+        this.movesToRemember = (int) (Math.log(strategicMoves.length())/Math.log(2)/2);
         this.memory = new int[this.movesToRemember*2];
         // Initially nothing is remembered.
         // So, the memory is initialized by -1.
