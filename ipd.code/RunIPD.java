@@ -32,7 +32,7 @@ public class RunIPD extends Object
         }
         /* for i */
 
-        player1 = new StrategySample("1100");
+        player1 = new StrategySample("0011");
         
         String [] strategyDescs = new String []{"Best", "Tit of tat", "Tit for two tats", "Always defect", "Always cooperate", "Random"};
         Strategy [] players = new Strategy[6];
@@ -46,7 +46,6 @@ public class RunIPD extends Object
         {
             System.out.println(strategyDescs[i]);
             ipd = new IteratedPD(player1, players[i]);
-            //ipd = new IteratedPD(players[i], player1);
 
             ipd.runSteps(maxSteps);
             

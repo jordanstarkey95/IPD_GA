@@ -125,7 +125,7 @@ public class StrategySample extends Strategy
             // Get the integer value of the move sequence in the memory
             strategyIndex += memory[i] * (int) (Math.pow(2, memory.length - (i + 1)));
         }
-        int move = Character.getNumericValue(strategicMoves.charAt(strategyIndex));
+        int move = 1-Character.getNumericValue(strategicMoves.charAt(strategyIndex));
         //System.out.println(Arrays.toString(memory) + ", " + strategyIndex + ", " + move);
         return move;
     }
