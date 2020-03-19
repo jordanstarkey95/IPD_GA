@@ -13,31 +13,37 @@ import java.util.Arrays;
 public class StrategySample extends Strategy
 {
 
-    final int movesToRemember = 3;
-    String strategicMoves = "0100010110101000011001001111101000010011111001010101110100000000";
-    int[] memory = new int[movesToRemember*2];
-    int currentIndexP1 = 0;
-    int currentIndexP2 = movesToRemember;
+    int movesToRemember;
+    String strategicMoves;
+    int[] memory;
+    int currentIndexP1;
+    int currentIndexP2;
     
     public StrategySample()
     {
-        // Initially nothing is remembered.
-        // So, the memory is initialized by -1.
-        for (int i = 0; i < memory.length; i++)
-        {
-            memory[i] = -1;
-        }
+        this.strategicMoves = "0100010110101000011001001111101000010011111001010101110100000000";
+        this.movesToRemember = (int) (Math.log(strategicMoves.length())/Math.log(2)/2);
+        this.setMemory();
     }
-
+    
     public StrategySample(String strategicMoves)
     {
+        this.movesToRemember = (int) (Math.log(strategicMoves.length())/Math.log(2)/2);
         this.strategicMoves = strategicMoves;
+        this.setMemory();
+    }
+    
+    public void setMemory()
+    {
+        this.memory = new int[this.movesToRemember*2];
         // Initially nothing is remembered.
         // So, the memory is initialized by -1.
         for (int i = 0; i < memory.length; i++)
         {
             memory[i] = -1;
         }
+        this.currentIndexP1 = 0;
+        this.currentIndexP2 = this.movesToRemember;
     }
 
     @Override
