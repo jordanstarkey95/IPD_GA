@@ -32,16 +32,17 @@ public class RunIPD extends Object
         }
         /* for i */
 
-        player1 = new StrategySample("0011");
+        player1 = new StrategySample("1000");
         
-        String [] strategyDescs = new String []{"Best", "Tit of tat", "Tit for two tats", "Always defect", "Always cooperate", "Random"};
-        Strategy [] players = new Strategy[6];
-        players[0] = new StrategySample();
+        String [] strategyDescs = new String []{"0011", "Tit of tat", "Tit for two tats", "Always defect", "Always cooperate", "Random", "3 bit best"};
+        Strategy [] players = new Strategy[7];
+        players[0] = new StrategySample("1100");
         players[1] = new StrategyTitForTat();
         players[2] = new StrategyTitForTwoTats();
         players[3] = new StrategyAlwaysDefect();
         players[4] = new StrategyAlwaysCooperate();
         players[5] = new StrategyRandom();
+        players[6] = new StrategySample();
         for(i=0; i<players.length; i++)
         {
             System.out.println(strategyDescs[i]);

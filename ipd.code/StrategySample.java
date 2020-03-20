@@ -48,11 +48,6 @@ public class StrategySample extends Strategy
     @Override
     public void saveOpponentMove(int move)
     {
-        // Since 'C' is denoted by 1 and 'D' by 0,
-        // but in our memory we consider CCCCCC as index 0 and
-        // DDDDDD to the last index, here we flip the move.
-        move = 1 - move;
-
         // If memory is still not full,
         // assign the move in the currentIndex.
         if (currentIndexP2 < memory.length)
@@ -76,11 +71,6 @@ public class StrategySample extends Strategy
     @Override
     public void saveMyMove(int move)
     {
-        // Since 'C' is denoted by 1 and 'D' by 0,
-        // but in our memory we consider CCCCCC as index 0 and
-        // DDDDDD to the last index, here we flip the move.
-        move = 1 - move;
-
         // If memory is still not full,
         // assign the move in the currentIndex.
         if (currentIndexP1 < movesToRemember)
@@ -113,7 +103,7 @@ public class StrategySample extends Strategy
             if (memory[i] == -1)
             {
                 // Always cooperate
-                return 0;
+                return 1;
                 /*
                 // Cooperate in the first move
                 if(i == 0)
@@ -125,7 +115,7 @@ public class StrategySample extends Strategy
             // Get the integer value of the move sequence in the memory
             strategyIndex += memory[i] * (int) (Math.pow(2, memory.length - (i + 1)));
         }
-        int move = 1-Character.getNumericValue(strategicMoves.charAt(strategyIndex));
+        int move = Character.getNumericValue(strategicMoves.charAt(strategyIndex));
         //System.out.println(Arrays.toString(memory) + ", " + strategyIndex + ", " + move);
         return move;
     }
