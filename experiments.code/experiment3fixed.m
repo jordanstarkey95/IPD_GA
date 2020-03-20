@@ -39,8 +39,8 @@ for k=1:length(memory_lengths)
 end
 
 title('Best fitness for different memory lengths', 'FontSize', 24);
-xlabel('Mutation rate', 'FontSize', 16);
-ylabel('Crossover rate', 'FontSize', 16);
+xlabel('Crossover rate', 'FontSize', 16);
+ylabel('Mutation rate', 'FontSize', 16);
 leg = legend(meshes, {'1','2','3'}, 'Location', 'BestOutside', 'Orientation', 'Horizontal');
 set(leg,'FontSize', 14);
 saveas(gcf,'experiment3fixed.png')
