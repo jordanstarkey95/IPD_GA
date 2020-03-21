@@ -2,10 +2,10 @@ public class Experiment2
 {
     public static void main(String[] args) throws java.io.IOException
     {
-        double[] crossoverRates = new double[]{0.5, 0.6, 0.7, 0.8, 0.9};
-        double[] mutationRates = new double[]{0.001, 0.002, 0.003, 0.004, 0.005, 0.010};
-        int[] memoryLengths = new int[]{1, 2, 3, 4, 5, 6};
-        int[] numberOfGames = new int[]{32, 64};
+        double[] crossoverRates = new double[]{0.05, 0.50, 0.60, 0.70, 0.80, 0.90};
+        double[] mutationRates = new double[]{0.001, 0.002, 0.003, 0.004, 0.005, 0.010, 0.050, 0.500};
+        int[] memoryLengths = new int[]{1, 2, 3};
+        int[] numberOfGames = new int[]{64};
 
         for(double crossoverRate: crossoverRates)
         {
