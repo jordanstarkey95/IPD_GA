@@ -1,7 +1,10 @@
-/******************************************************************************
-*  A Teaching GA					  Developed by Hal Stringer & Annie Wu, UCF
-*  Version 2, January 18, 2004
-*******************************************************************************/
+
+/**
+ * ****************************************************************************
+ *  A Teaching GA					  Developed by Hal Stringer & Annie Wu, UCF
+ *  Version 2, January 18, 2004
+ ******************************************************************************
+ */
 
 import java.io.*;
 import java.util.*;
@@ -10,10 +13,11 @@ import java.text.*;
 public class Parameters
 {
 
-/*******************************************************************************
-*                            INSTANCE VARIABLES                                *
-*******************************************************************************/
-
+	/**
+	 * *****************************************************************************
+	 * INSTANCE VARIABLES *
+	 ******************************************************************************
+	 */
 	public static String expID;
 	public static String problemType;
 
@@ -39,14 +43,18 @@ public class Parameters
 	public static int numGenes;
 	public static int geneSize;
 
-/*******************************************************************************
-*                              CONSTRUCTORS                                    *
-*******************************************************************************/
+	public static int numGames;
 
-	public Parameters(String parmfilename) throws java.io.IOException{
+	/**
+	 * *****************************************************************************
+	 * CONSTRUCTORS *
+	 ******************************************************************************
+	 */
+	public Parameters(String parmfilename) throws java.io.IOException
+	{
 
 		String readLine;
-		BufferedReader parmInput = new BufferedReader(new FileReader (parmfilename));
+		BufferedReader parmInput = new BufferedReader(new FileReader(parmfilename));
 
 		expID = parmInput.readLine().substring(30);
 		problemType = parmInput.readLine().substring(30);
@@ -71,22 +79,64 @@ public class Parameters
 
 		parmInput.close();
 
-		if (scaleType==0 || scaleType==2) minORmax = "max";
-		else minORmax = "min";
+		if (scaleType == 0 || scaleType == 2)
+		{
+			minORmax = "max";
+		}
+		else
+		{
+			minORmax = "min";
+		}
 
 	}
 
-/*******************************************************************************
-*                                MEMBER METHODS                                *
-*******************************************************************************/
+	public Parameters(String expID, int n, int g, int p, double x, double m, int s, int n_genes, int n_games)
+	{
+		this.expID = expID;
+		problemType = "IPD";
 
+		dataInputFileName = "NA";
 
-/*******************************************************************************
-*                             STATIC METHODS                                   *
-*******************************************************************************/
+		numRuns = n;
+		generations = g;
+		popSize = p;
 
-	public static void outputParameters(FileWriter output) throws java.io.IOException{
+		selectType = 2;
+		scaleType = 0;
 
+		xoverType = 1;
+		xoverRate = x;
+		mutationType = 1;
+		mutationRate = m;
+
+		seed = s;
+		numGenes = n_genes;
+		geneSize = 1;
+
+		numGames = n_games;
+
+		if (scaleType == 0 || scaleType == 2)
+		{
+			minORmax = "max";
+		}
+		else
+		{
+			minORmax = "min";
+		}
+	}
+
+	/**
+	 * *****************************************************************************
+	 * MEMBER METHODS *
+	 ******************************************************************************
+	 */
+	/**
+	 * *****************************************************************************
+	 * STATIC METHODS *
+	 ******************************************************************************
+	 */
+	public static void outputParameters(FileWriter output) throws java.io.IOException
+	{
 
 		output.write("Experiment ID                :  " + expID + "\n");
 		output.write("Problem Type                 :  " + problemType + "\n");

@@ -16,12 +16,12 @@ public class Search
     /**
      * *****************************************************************************
      * INSTANCE VARIABLES *
-******************************************************************************
+     ******************************************************************************
      */
     /**
      * *****************************************************************************
      * STATIC VARIABLES *
-******************************************************************************
+     ******************************************************************************
      */
     public static FitnessFunction problem;
 
@@ -63,17 +63,17 @@ public class Search
     /**
      * *****************************************************************************
      * CONSTRUCTORS *
-******************************************************************************
+     ******************************************************************************
      */
     /**
      * *****************************************************************************
      * MEMBER METHODS *
-******************************************************************************
+     ******************************************************************************
      */
     /**
      * *****************************************************************************
      * STATIC METHODS *
-******************************************************************************
+     ******************************************************************************
      */
     public static void main(String[] args) throws java.io.IOException
     {
@@ -82,13 +82,14 @@ public class Search
         Date startTime = dateAndTime.getTime();
 
         //  Read Parameter File
-        System.out.println("\nParameter File Name is: " + args[0] + "\n");
-        Parameters parmValues = new Parameters(args[0]);
+        //System.out.println("\nParameter File Name is: " + args[0] + "\n");
+        //Parameters parmValues = new Parameters(args[0]);
 
         //  Write Parameters To Summary Output File
         String summaryFileName = Parameters.expID + "_summary.txt";
         FileWriter summaryOutput = new FileWriter(summaryFileName);
-        parmValues.outputParameters(summaryOutput);
+        //parmValues.outputParameters(summaryOutput);
+        Parameters.outputParameters(summaryOutput);
 
         //	Set up Fitness Statistics matrix
         fitnessStats = new double[2][Parameters.generations];
@@ -225,7 +226,7 @@ public class Search
                 stdevRawFitness = Math.sqrt(
                         Math.abs(sumRawFitness2
                                 - sumRawFitness * sumRawFitness / Parameters.popSize)
-                        / (Parameters.popSize - 1)
+                                / (Parameters.popSize - 1)
                 );
 
                 // Output generation statistics to screen
@@ -422,4 +423,3 @@ public class Search
     } // End of Main Class
 
 }   // End of Search.Java ******************************************************
-
