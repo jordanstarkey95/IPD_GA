@@ -6,8 +6,8 @@ nr_runs = 10;
 offset = 122;
 interval = 103;
 
-crossover_rates = [0.5, 0.6, 0.7, 0.8, 0.9];
-mutation_rates = [0.001, 0.002, 0.003, 0.004, 0.005];
+crossover_rates = [0.05, 0.50, 0.60, 0.70, 0.80, 0.90];
+mutation_rates = [0.001, 0.002, 0.003, 0.004, 0.005, 0.010, 0.050, 0.500];
 memory_lengths = [1, 2, 3];
 number_of_games = 64;
 
@@ -27,7 +27,7 @@ for k=1:length(memory_lengths)
       % Date Accessed: 18 March 2020
       for l=0:(nr_runs-1)
         linenum = offset+l*interval;
-        fid=fopen(strcat('..\experiment-2crossover_rate-', num2str(crossover_rate, 1), 'mutation_rate-', num2str(mutation_rate, 3), 'memory_length-', num2str(k), 'number_of_games-', num2str(number_of_games),  '_summary.txt')); 
+        fid=fopen(strcat('..\experiment-2crossover_rate-', num2str(crossover_rate, 2), 'mutation_rate-', num2str(mutation_rate, 3), 'memory_length-', num2str(k), 'number_of_games-', num2str(number_of_games),  '_summary.txt')); 
         best_line = textscan(fid,'%s',1,'delimiter','\n', 'headerlines',linenum-1);
         best_line_char = char(best_line);
         best = strsplit(best_line_char);
