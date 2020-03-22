@@ -44,7 +44,7 @@ public class IPDStrategy extends FitnessFunction
     {
 
         member[index].rawFitness = 0;
-        int numGames = Parameters.numGenes * Parameters.geneSize;
+        int numGames = Parameters.numGames;
         Strategy player1, player2;
         IteratedPD ipd;
         player1 = new StrategySample(member[index].chromo);
