@@ -2,13 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6af3a45d-7063-48bd-a625-b816a4d5a5f4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ipd.code/EncodedStrategySample.java" beforeDir="false" afterPath="$PROJECT_DIR$/ipd.code/EncodedStrategySample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipd.code/RunIPD.java" beforeDir="false" afterPath="$PROJECT_DIR$/ipd.code/RunIPD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ipd.code/StrategySample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="122" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -25,13 +31,14 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Starcraft/pysc2-examples" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ipd.code" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RunManager" selected="Application.RunIPD">
-    <configuration name="Experiment2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Experiment2" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Experiment2" />
       <module name="IPD_GA" />
       <method v="2">
@@ -43,6 +50,7 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="C:\Users\Jordan Starkey\Desktop\IPD_GA\IPD_GA\ipd.code\RunIPD.java" />
       <module name="IPD_GA" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ipd.code" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -51,11 +59,6 @@
       <item itemvalue="Application.RunIPD" />
       <item itemvalue="Application.Experiment2" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Experiment2" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -71,38 +74,46 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584903818020">
+    <state x="0" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584905271817">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584903818020" />
-    <state x="689" y="303" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1584902206973">
+    <state x="0" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584905271817" />
+    <state x="224" y="326" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584905459922">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="689" y="303" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584902206973" />
-    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1584854315437">
+    <state x="224" y="326" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1584905459922" />
+    <state x="689" y="303" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1584905061279">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1584854315437" />
-    <state width="938" height="282" key="GridCell.Tab.0.bottom" timestamp="1584903926761">
+    <state x="689" y="303" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584905061279" />
+    <state x="280" y="285" key="EnvironmentVariablesDialog" timestamp="1584904977916">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="938" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584903926761" />
-    <state width="938" height="282" key="GridCell.Tab.0.center" timestamp="1584903926760">
+    <state x="280" y="285" key="EnvironmentVariablesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584904977916" />
+    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1584904813823">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="938" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584903926760" />
-    <state width="938" height="282" key="GridCell.Tab.0.left" timestamp="1584903926760">
+    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1584904813823" />
+    <state width="457" height="281" key="GridCell.Tab.0.bottom" timestamp="1584905382233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="938" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584903926760" />
-    <state width="938" height="282" key="GridCell.Tab.0.right" timestamp="1584903926761">
+    <state width="457" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584905382233" />
+    <state width="457" height="281" key="GridCell.Tab.0.center" timestamp="1584905382233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="938" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584903926761" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1584844699457">
+    <state width="457" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584905382233" />
+    <state width="457" height="281" key="GridCell.Tab.0.left" timestamp="1584905382233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1584844699457" />
+    <state width="457" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584905382233" />
+    <state width="457" height="281" key="GridCell.Tab.0.right" timestamp="1584905382233">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="457" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584905382233" />
+    <state x="11" y="44" key="SettingsEditor" timestamp="1584904925484">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="11" y="44" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1584904925484" />
     <state x="664" y="413" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1584844696297">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -111,5 +122,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="342" y="140" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1584854281294" />
+    <state x="137" y="244" key="run.anything.popup" timestamp="1584904953472">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="137" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584904953472" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/IPD_GA$RunIPD.ic" NAME="RunIPD Coverage Results" MODIFIED="1584904941371" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
