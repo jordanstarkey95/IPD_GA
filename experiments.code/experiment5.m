@@ -8,7 +8,7 @@ interval = 103;
 
 crossover_rates = [0.5, 0.6, 0.7, 0.8, 0.9];
 mutation_rates = [0.001, 0.002, 0.003, 0.004, 0.005];
-memory_lengths = [1];
+memory_lengths = [1, 2, 3];
 number_of_games = 64;
 
 for k=1:length(memory_lengths)
@@ -42,5 +42,8 @@ for k=1:length(memory_lengths)
   % Date Published: 12 February 2014
   % Date Accessed: 21 March 2020
   unique_chromosomes = unique(best_chromosomes);
-  count_chromosomes = cellfun(@(x) sum(ismember(best_chromosomes,x)), unique_chromosomes,'un',0)
+  count_chromosomes = cellfun(@(x) sum(ismember(best_chromosomes,x)), unique_chromosomes,'un',0);
+  fprintf("Memory length: %d", memory_length);
+  disp(unique_chromosomes);
+  disp(count_chromosomes);
 end
