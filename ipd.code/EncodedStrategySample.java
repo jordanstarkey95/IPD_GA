@@ -33,12 +33,6 @@ public class EncodedStrategySample extends Strategy
         this.strategicMoves = strategicMoves;
         
         this.setMemory();
-        // Initially nothing is remembered.
-        // So, the memory is initialized by -1.
-        for (int i = 0; i < memory.length; i++)
-        {
-            memory[i] = -1;
-        }
 
         // The first three moves in a game are undefined
         // To account for these six bits (C’s and D’s, initially assigned at random) are appended to the above 64 bit
@@ -74,7 +68,7 @@ public class EncodedStrategySample extends Strategy
         // Since 'C' is denoted by 1 and 'D' by 0,
         // but in our memory we consider CCCCCC as index 0 and
         // DDDDDD to the last index, here we flip the move.
-        move = 1 - move;
+        // move = 1 - move;
 
         // If memory is still not full,
         // assign the move in the currentIndex.
@@ -102,7 +96,7 @@ public class EncodedStrategySample extends Strategy
         // Since 'C' is denoted by 1 and 'D' by 0,
         // but in our memory we consider CCCCCC as index 0 and
         // DDDDDD to the last index, here we flip the move.
-        move = 1 - move;
+        // move = 1 - move;
 
         // If memory is still not full,
         // assign the move in the currentIndex.
@@ -169,7 +163,7 @@ public class EncodedStrategySample extends Strategy
             base++;
         }
         //System.out.println(index);
-        int move = 1 - Character.getNumericValue(strategicMoves.charAt(index));
+        int move = Character.getNumericValue(strategicMoves.charAt(index));
         return move;
     }
 
