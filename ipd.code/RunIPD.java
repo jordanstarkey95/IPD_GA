@@ -32,7 +32,7 @@ public class RunIPD extends Object
         }
         /* for i */
 
-        player1 = new StrategySample("1100", 1);
+        player1 = new StrategySample("1100");
         player2 = new StrategyTitForTat();
         //player2 = new StrategyTitForTwoTats();
         //player2 = new StrategyAlwaysDefect();
