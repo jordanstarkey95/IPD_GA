@@ -17,7 +17,7 @@ public class EncodedStrategySample extends Strategy
     int movesToRemember;
     String strategicMoves;
     // assumption about the pre-game behavior
-    String assumptions = "";
+    int[] assumptions;
     int[] memory ;
     int currentIndexP1;
     int currentIndexP2;
@@ -30,8 +30,8 @@ public class EncodedStrategySample extends Strategy
 
     public EncodedStrategySample(String strategicMoves)
     {
+        name = "Encoded Strategy Sample";
         this.strategicMoves = strategicMoves;
-        
         this.setMemory();
 
         // The first three moves in a game are undefined
@@ -39,12 +39,10 @@ public class EncodedStrategySample extends Strategy
         // string to specify a strategy’s premises, or assumption about the pre-game behavior
         // Together, each of the 70 bit strings thus represent a particular strategy, the first 64 for rules and the
         // next 6 for the premises.
-        for(int i = 0; i < memory.length; i++) {
-            assumptions += Integer.toString(ran.nextInt(2));
+        for(int i = 0; i < this.memory.length; i++) {
+            this.assumptions[i] = ran.nextInt(2);
         }
 
-        // Append the assumptions to the premises
-        strategicMoves = strategicMoves + assumptions;
         //System.out.println(strategicMoves);
     }
 
@@ -52,12 +50,10 @@ public class EncodedStrategySample extends Strategy
     {
         this.movesToRemember = (int) (Math.log(strategicMoves.length())/Math.log(2)/2);
         this.memory = new int[this.movesToRemember*2];
+        this.assumptions = new int[this.memory.length];
         // Initially nothing is remembered.
         // So, the memory is initialized by -1.
-        for (int i = 0; i < memory.length; i++)
-        {
-            memory[i] = -1;
-        }
+        Arrays.fill(this.memory, -1);
         this.currentIndexP1 = 0;
         this.currentIndexP2 = this.movesToRemember;
     }
@@ -121,23 +117,33 @@ public class EncodedStrategySample extends Strategy
     @Override
     public int nextMove()
     {
+        // Convert previous three moves to three letter string encoding
+        String encoding = "";
         // Starting index for rules may change depending on if we have played 3 moves.
         int i = 0;
         // If memory is still not full,
-        // assign the starting index to where our premises begin.
-        if(Arrays.stream(memory).anyMatch(j -> j == -1)) {
-            i = strategicMoves.length();
+        // then we choose from our assumptions
+        if(Arrays.stream(this.memory).anyMatch(j -> j == -1)) {
+            for (; (i + movesToRemember) < this.assumptions.length; i++)
+            {
+                if(this.assumptions[i] == 1 && this.assumptions[i + movesToRemember] == 1)
+                    encoding += "R";
+                else if(this.assumptions[i] == 0 && this.assumptions[i + movesToRemember] == 1)
+                    encoding += "T";
+                else if(this.assumptions[i] == 1 && this.assumptions[i + movesToRemember] == 0)
+                    encoding += "S";
+                else // player 1 chose 0 and player 2 chose 0
+                    encoding += "P";
+            }
         }
 
-        // Convert previous three moves to three letter string encoding
-        String encoding = "";
-        for (; (i + movesToRemember) < memory.length; i++)
+        for (; (i + this.movesToRemember) < this.memory.length; i++)
         {
-            if(memory[i] == 1 && memory[i + movesToRemember] == 1) 
+            if(this.memory[i] == 1 && this.memory[i + this.movesToRemember] == 1)
                 encoding += "R";
-            else if(memory[i] == 0 && memory[i + movesToRemember] == 1) 
+            else if(this.memory[i] == 0 &&this. memory[i + this.movesToRemember] == 1)
                 encoding += "T";
-            else if(memory[i] == 1 && memory[i + movesToRemember] == 0) 
+            else if(this.memory[i] == 1 && this.memory[i + this.movesToRemember] == 0)
                 encoding += "S";
             else // player 1 chose 0 and player 2 chose 0
                 encoding += "P";
@@ -163,7 +169,7 @@ public class EncodedStrategySample extends Strategy
             base++;
         }
         //System.out.println(index);
-        int move = Character.getNumericValue(strategicMoves.charAt(index));
+        int move = Character.getNumericValue(this.strategicMoves.charAt(index));
         return move;
     }
 

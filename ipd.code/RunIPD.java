@@ -15,7 +15,7 @@ public class RunIPD extends Object
    public static void main(String args[])
    {
       int i;
-      int maxSteps = 0;
+      int maxSteps = 1000;
 
       Strategy player1, player2;
       IteratedPD ipd;
@@ -32,30 +32,17 @@ public class RunIPD extends Object
       }
       /* for i */
 
-      player1 = new StrategySample("0010");
-      System.out.println("Running 0010 against...");
-      String [] strategyDescs = new String []{"0011", "Tit of tat", "Tit for two tats", "Always defect", "Always cooperate", "Random", "1000"};
-      Strategy [] players = new Strategy[7];
-      players[0] = new StrategySample("1100");
-      players[1] = new StrategyTitForTat();
-      players[2] = new StrategyTitForTwoTats();
-      players[3] = new StrategyAlwaysDefect();
-      players[4] = new StrategyAlwaysCooperate();
-      players[5] = new StrategyRandom();
-      players[6] = new StrategySample("1000");
-      for(i=0; i<players.length; i++)
-      {
-         System.out.println(strategyDescs[i]);
-         ipd = new IteratedPD(player1, players[i]);
+      //player1 = new StrategySample("1000");
+      player1 = new StrategyAlwaysDefect();
+      //player2 = new StrategyTitForTwoTats();
+      player2 = new EncodedStrategySample("1110");
+      //player2 = new StrategyAlwaysCooperate();
+      ipd = new IteratedPD(player1, player2);
 
-         ipd.runSteps(maxSteps);
+      ipd.runSteps(maxSteps);
 
-         System.out.printf(" Player 1 score = %d\n", ipd.player1Score());
-         System.out.printf(" Player 2 score = %d\n", ipd.player2Score());
-      }
-
-
-
+      System.out.printf(" Player 1 score = %d\n", ipd.player1Score());
+      System.out.printf(" Player 2 score = %d\n", ipd.player2Score());
 
    }
    /* main */

@@ -1,0 +1,48 @@
+Experiment ID                :  TESTexperiment-2fixed-crossover_rate-0.5mutation_rate-0.001memory_length-1number_of_games-64
+Problem Type                 :  IPD
+Data Input File Name         :  NA
+Number of Runs               :  1
+Generations per Run          :  10
+Population Size              :  10
+Selection Method             :  2
+Fitness Scaling Type         :  2
+Min or Max Fitness           :  max
+Crossover Type               :  1
+Crossover Rate               :  0.5
+Mutation Type                :  1
+Mutation Rate                :  0.001
+Random Number Seed           :  75982
+Number of Genes/Points       :  4
+Size of Genes                :  1
+Number of Games              :  64
+Memory Length                :  1
+
+
+ R   1 G   0   3264     2150.4    642.547
+ R   1 G   1   2996     2165.6    775.324
+ R   1 G   2   2500     1868.2    532.969
+ R   1 G   3   2748     2092.6    729.949
+ R   1 G   4   2496     1850.2    483.155
+ R   1 G   5   2752     1772.8    712.067
+ R   1 G   6   2752     2291.2    494.639
+ R   1 G   7   2752     2368.0    367.033
+ R   1 G   8   2752     2323.2    404.828
+ R   1 G   9   2496     1734.4    588.468
+1      0     0010   RawFitness
+        0010         3264
+
+B            0010   RawFitness
+        0010         3264
+
+Gen                 AvgFit              BestFit 
+0              2150.4              3264.0              
+1              2165.6              2996.0              
+2              1868.2              2500.0              
+3              2092.6              2748.0              
+4              1850.2              2496.0              
+5              1772.8              2752.0              
+6              2291.2              2752.0              
+7              2368.0              2752.0              
+8              2323.2              2752.0              
+9              1734.4              2496.0              
+
