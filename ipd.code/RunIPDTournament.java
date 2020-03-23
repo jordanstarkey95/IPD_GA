@@ -40,7 +40,7 @@ public class RunIPDTournament extends Object
                 player1 = new StrategySample("1000");
                 player2 = opponentStrategy;
 
-                for(int j=1; j < monteCarloLength; j++)
+                for(int j=0; j < monteCarloLength; j++)
                 {
 
                     ipd = new IteratedPD(player1, player2);
