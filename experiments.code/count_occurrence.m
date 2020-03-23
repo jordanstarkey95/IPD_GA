@@ -1,6 +1,4 @@
-% Experiment 5 - Count
-
-% Average average fitness
+% Count Occurrence of Each Strategy
 
 nr_runs = 10;
 offset = 122;
@@ -25,10 +23,12 @@ for k=1:length(memory_lengths)
       % Author: MathWorks Support Team 
       % Date Published: 12 October 2016
       % Date Accessed: 18 March 2020
+      filename = strcat('..\experiment-2crossover_rate-', num2str(crossover_rate, 2), 'mutation_rate-', num2str(mutation_rate, 3), 'memory_length-', num2str(memory_length), 'number_of_games-', num2str(number_of_games),  '_summary.txt');
       for l=0:(nr_runs-1)
         linenum = offset+l*interval;
-        fid=fopen(strcat('..\experiment-2crossover_rate-', num2str(crossover_rate, 2), 'mutation_rate-', num2str(mutation_rate, 3), 'memory_length-', num2str(k), 'number_of_games-', num2str(number_of_games),  '_summary.txt')); 
+        fid=fopen(filename);
         best_line = textscan(fid,'%s',1,'delimiter','\n', 'headerlines',linenum-1);
+        fclose(fid);
         best_line_char = char(best_line);
         best = strsplit(best_line_char);
         best_chromosomes{n} = best{1};
@@ -43,7 +43,9 @@ for k=1:length(memory_lengths)
   % Date Accessed: 21 March 2020
   unique_chromosomes = unique(best_chromosomes);
   count_chromosomes = cellfun(@(x) sum(ismember(best_chromosomes,x)), unique_chromosomes,'un',0);
-  fprintf("Memory length: %d", memory_length);
-  disp(unique_chromosomes);
-  disp(count_chromosomes);
+  
+  [m, i ] = max(cell2mat(count_chromosomes));
+  fprintf('Occurrence: %d\n', m);
+  fprintf('Chromosome: %s\n', unique_chromosomes{i});
+  fprintf('\n');
 end
