@@ -1,10 +1,7 @@
-
-/**
- * ****************************************************************************
+/******************************************************************************
  *  A Teaching GA					  Developed by Hal Stringer & Annie Wu, UCF
  *  Version 2, January 18, 2004
- ******************************************************************************
- */
+ *******************************************************************************/
 
 import java.io.*;
 import java.util.*;
@@ -13,11 +10,10 @@ import java.text.*;
 public class Parameters
 {
 
-	/**
-	 * *****************************************************************************
-	 * INSTANCE VARIABLES *
-	 ******************************************************************************
-	 */
+	/*******************************************************************************
+	 *                            INSTANCE VARIABLES                                *
+	 *******************************************************************************/
+
 	public static String expID;
 	public static String problemType;
 
@@ -45,16 +41,16 @@ public class Parameters
 
 	public static int numGames;
 
-	/**
-	 * *****************************************************************************
-	 * CONSTRUCTORS *
-	 ******************************************************************************
-	 */
-	public Parameters(String parmfilename) throws java.io.IOException
-	{
+	public static int memoryLength;
+
+	/*******************************************************************************
+	 *                              CONSTRUCTORS                                    *
+	 *******************************************************************************/
+
+	public Parameters(String parmfilename) throws java.io.IOException{
 
 		String readLine;
-		BufferedReader parmInput = new BufferedReader(new FileReader(parmfilename));
+		BufferedReader parmInput = new BufferedReader(new FileReader (parmfilename));
 
 		expID = parmInput.readLine().substring(30);
 		problemType = parmInput.readLine().substring(30);
@@ -74,69 +70,31 @@ public class Parameters
 		mutationRate = Double.parseDouble(parmInput.readLine().substring(30).trim());
 
 		seed = Long.parseLong(parmInput.readLine().substring(30).trim());
-		numGenes = Integer.parseInt(parmInput.readLine().substring(30).trim());
 		geneSize = Integer.parseInt(parmInput.readLine().substring(30).trim());
+
+		numGames = Integer.parseInt(parmInput.readLine().substring(30).trim());
+		memoryLength = Integer.parseInt(parmInput.readLine().substring(30).trim());
+
+		numGenes = (int) Math.pow(2, 2*memoryLength);
 
 		parmInput.close();
 
-		if (scaleType == 0 || scaleType == 2)
-		{
-			minORmax = "max";
-		}
-		else
-		{
-			minORmax = "min";
-		}
+		if (scaleType==0 || scaleType==2) minORmax = "max";
+		else minORmax = "min";
 
 	}
 
-	public Parameters(String expID, int n, int g, int p, double x, double m, int s, int n_genes, int n_games)
-	{
-		this.expID = expID;
-		problemType = "IPD";
+/*******************************************************************************
+ *                                MEMBER METHODS                                *
+ *******************************************************************************/
 
-		dataInputFileName = "NA";
 
-		numRuns = n;
-		generations = g;
-		popSize = p;
+	/*******************************************************************************
+	 *                             STATIC METHODS                                   *
+	 *******************************************************************************/
 
-		selectType = 2;
-		scaleType = 0;
+	public static void outputParameters(FileWriter output) throws java.io.IOException{
 
-		xoverType = 1;
-		xoverRate = x;
-		mutationType = 1;
-		mutationRate = m;
-
-		seed = s;
-		numGenes = n_genes;
-		geneSize = 1;
-
-		numGames = n_games;
-
-		if (scaleType == 0 || scaleType == 2)
-		{
-			minORmax = "max";
-		}
-		else
-		{
-			minORmax = "min";
-		}
-	}
-
-	/**
-	 * *****************************************************************************
-	 * MEMBER METHODS *
-	 ******************************************************************************
-	 */
-	/**
-	 * *****************************************************************************
-	 * STATIC METHODS *
-	 ******************************************************************************
-	 */
-	public static void outputParameters(FileWriter output) throws java.io.IOException
-	{
 
 		output.write("Experiment ID                :  " + expID + "\n");
 		output.write("Problem Type                 :  " + problemType + "\n");
@@ -160,7 +118,47 @@ public class Parameters
 		output.write("Number of Genes/Points       :  " + numGenes + "\n");
 		output.write("Size of Genes                :  " + geneSize + "\n");
 
+		output.write("Number of Games              :  " + numGames + "\n");
+		output.write("Memory Length                :  " + memoryLength + "\n");
+
 		output.write("\n\n");
 
+	}
+
+	// Source: Homework 2
+	public Parameters(String expID, String problemType, String dataInputFileName,
+					  int numRuns, int generations, int popSize,
+					  int selectType, int scaleType,
+					  int xoverType, double xoverRate, int mutationType, double mutationRate,
+					  long seed, int geneSize, int numGames, int memoryLength)
+	{
+		Parameters.expID = expID;
+		Parameters.problemType = problemType;
+
+		Parameters.dataInputFileName = dataInputFileName;
+
+		Parameters.numRuns = numRuns;
+		Parameters.generations = generations;
+		Parameters.popSize = popSize;
+
+		Parameters.selectType = selectType;
+		Parameters.scaleType = selectType;
+
+		Parameters.xoverType = xoverType;
+		Parameters.xoverRate = xoverRate;
+		Parameters.mutationType = mutationType;
+		Parameters.mutationRate = mutationRate;
+
+		Parameters.seed = seed;
+		Parameters.geneSize = geneSize;
+
+		Parameters.numGames = numGames;
+
+		Parameters.memoryLength = memoryLength;
+
+		Parameters.numGenes = (int) Math.pow(2, 2*memoryLength);
+
+		if (scaleType==0 || scaleType==2) minORmax = "max";
+		else minORmax = "min";
 	}
 }   // End of Parameters.java **************************************************
