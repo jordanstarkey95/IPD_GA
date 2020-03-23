@@ -1,4 +1,4 @@
-public class Experiment2
+public class Experiment
 {
     public static void main(String[] args) throws java.io.IOException
     {
@@ -14,7 +14,7 @@ public class Experiment2
                 for (int memoryLength : memoryLengths)
                 {
                     for (int n: numberOfGames){
-                        new Parameters("experiment-2crossover_rate-" + crossoverRate + "mutation_rate-" + mutationRate + "memory_length-" + memoryLength + "number_of_games-" + n, "IPD", "NA",
+                        new Parameters("crossover_rate-" + crossoverRate + "mutation_rate-" + mutationRate + "memory_length-" + memoryLength + "number_of_games-" + n, "IPD", "NA",
                             10, 100, 100,
                             2, 0,
                             1, crossoverRate, 1, mutationRate,
