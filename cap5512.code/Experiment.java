@@ -4,7 +4,7 @@ public class Experiment
     {
         double[] crossoverRates = new double[]{0.5, 0.6, 0.7, 0.8, 0.9};
         double[] mutationRates = new double[]{0.001, 0.003, 0.005, 0.1, 0.3, 0.5};
-        int[] memoryLengths = new int[]{1};
+        int[] memoryLengths = new int[]{2, 3};
         int[] numberOfGames = new int[]{64};
 
         for(double crossoverRate: crossoverRates)
@@ -14,7 +14,7 @@ public class Experiment
                 for (int memoryLength : memoryLengths)
                 {
                     for (int n: numberOfGames){
-                        new Parameters("crossover_rate-" + crossoverRate + "mutation_rate-" + mutationRate + "memory_length-" + memoryLength + "number_of_games-" + n, "IPD", "NA",
+                        new Parameters("FIXEDcrossover_rate-" + crossoverRate + "mutation_rate-" + mutationRate + "memory_length-" + memoryLength + "number_of_games-" + n, "IPD", "NA",
                             10, 100, 100,
                             2, 0,
                             1, crossoverRate, 1, mutationRate,
