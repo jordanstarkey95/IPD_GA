@@ -1,0 +1,96 @@
+ Strategy Sample vs Tit for Tat
+ Average player 1 score = 29
+ Average player 2 score = 29
+
+ Strategy Sample vs Tit for Two Tats
+ Average player 1 score = 45
+ Average player 2 score = 33
+
+ Strategy Sample vs Always defect
+ Average player 1 score = 29
+ Average player 2 score = 29
+
+ Strategy Sample vs Always cooperate
+ Average player 1 score = 69
+ Average player 2 score = 9
+
+ Strategy Sample vs Tit for Tat
+ Average player 1 score = 396
+ Average player 2 score = 396
+
+ Strategy Sample vs Tit for Two Tats
+ Average player 1 score = 455
+ Average player 2 score = 336
+
+ Strategy Sample vs Always defect
+ Average player 1 score = 296
+ Average player 2 score = 297
+
+ Strategy Sample vs Always cooperate
+ Average player 1 score = 693
+ Average player 2 score = 99
+
+ Strategy Sample vs Tit for Tat
+ Average player 1 score = 3960
+ Average player 2 score = 3960
+
+ Strategy Sample vs Tit for Two Tats
+ Average player 1 score = 2970
+ Average player 2 score = 2969
+
+ Strategy Sample vs Always defect
+ Average player 1 score = 2969
+ Average player 2 score = 2970
+
+ Strategy Sample vs Always cooperate
+ Average player 1 score = 6929
+ Average player 2 score = 990
+
+ Strategy Sample vs Tit for Tat
+ Average player 1 score = 39600
+ Average player 2 score = 39600
+
+ Strategy Sample vs Tit for Two Tats
+ Average player 1 score = 45540
+ Average player 2 score = 33660
+
+ Strategy Sample vs Always defect
+ Average player 1 score = 9900
+ Average player 2 score = 69299
+
+ Strategy Sample vs Always cooperate
+ Average player 1 score = 69300
+ Average player 2 score = 9900
+
+ Strategy Sample vs Tit for Tat
+ Average player 1 score = 297000
+ Average player 2 score = 297000
+
+ Strategy Sample vs Tit for Two Tats
+ Average player 1 score = 297000
+ Average player 2 score = 297000
+
+ Strategy Sample vs Always defect
+ Average player 1 score = 296999
+ Average player 2 score = 297000
+
+ Strategy Sample vs Always cooperate
+ Average player 1 score = 692999
+ Average player 2 score = 99000
+
+ Strategy Sample vs Tit for Tat
+ Average player 1 score = 2970000
+ Average player 2 score = 2970000
+
+ Strategy Sample vs Tit for Two Tats
+ Average player 1 score = 2970000
+ Average player 2 score = 2970000
+
+ Strategy Sample vs Always defect
+ Average player 1 score = 2969999
+ Average player 2 score = 2970000
+
+ Strategy Sample vs Always cooperate
+ Average player 1 score = 6930000
+ Average player 2 score = 990000
+
