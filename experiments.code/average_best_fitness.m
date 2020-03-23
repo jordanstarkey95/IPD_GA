@@ -45,7 +45,7 @@ for k=1:length(memory_lengths)
   hold on;
 end
 
-title('Average best fitness for different memory lengths', 'FontSize', 24);
+title('Average best fitness for different memory lengths', 'FontSize', 20);
 xlabel('Crossover rate', 'FontSize', 16);
 ylabel('Mutation rate', 'FontSize', 16);
 leg = legend(meshes, {'1','2','3'}, 'Location', 'BestOutside', 'Orientation', 'Horizontal');
