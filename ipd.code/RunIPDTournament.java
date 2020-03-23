@@ -37,11 +37,10 @@ public class RunIPDTournament extends Object
                 int player1Score = 0;
                 int player2Score = 0;
 
-                player1 = new StrategySample("1000");
-                player2 = opponentStrategy;
-
                 for(int j=0; j < monteCarloLength; j++)
                 {
+                    player1 = new StrategySample("1000");
+                    player2 = opponentStrategy;
 
                     ipd = new IteratedPD(player1, player2);
                     ipd.runSteps(i);
@@ -50,12 +49,12 @@ public class RunIPDTournament extends Object
                     player2Score += ipd.player2Score();
                 }
 
-                System.out.printf(" %s vs %s\n", player1.name, player2.name);
+                System.out.printf(" %s vs %s\n", (new StrategySample()).name, opponentStrategy.name);
                 System.out.printf(" Average player 1 score = %d\n", player1Score/monteCarloLength);
                 System.out.printf(" Average player 2 score = %d\n", player2Score/monteCarloLength);
                 System.out.println();
 
-                writer.printf(" %s vs %s\n", player1.name, player2.name);
+                writer.printf(" %s vs %s\n", (new StrategySample()).name, opponentStrategy.name);
                 writer.printf(" Average player 1 score = %d\n", player1Score/monteCarloLength);
                 writer.printf(" Average player 2 score = %d\n", player2Score/monteCarloLength);
                 writer.println();
