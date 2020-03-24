@@ -48,8 +48,8 @@ public class IPDStrategy extends FitnessFunction
         IteratedPD ipd;
         for (int i = 0; i < Parameters.popSize; i++)
         {
-            player1 = new StrategySample(member[index].chromo);
-            player2 = new StrategySample(member[i].chromo);
+            player1 = new EncodedStrategySample(member[index].chromo);
+            player2 = new EncodedStrategySample(member[i].chromo);
             ipd = new IteratedPD(player1, player2);
 
             ipd.runSteps(Parameters.numGames);
