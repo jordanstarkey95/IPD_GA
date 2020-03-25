@@ -47,13 +47,13 @@ public class RunIPD extends Object
             {
                 System.out.println(strategies[i] + " vs " + strategies[j]);
                 if(i == 0)
-                    player1 = new EncodedStrategySample("0000");
+                    player1 = new StrategyAxelrod("0000");
                 else
-                    player1 = new StrategySample(strategies[i]);
+                    player1 = new StrategyGolbeck(strategies[i]);
                 if(j == 0)
-                    player2 = new EncodedStrategySample();
+                    player2 = new StrategyAxelrod();
                 else
-                    player2 = new StrategySample(strategies[j]);
+                    player2 = new StrategyGolbeck(strategies[j]);
                 ipd = new IteratedPD(player1, player2);
 
                 ipd.runSteps(maxSteps);
@@ -84,9 +84,9 @@ public class RunIPD extends Object
                 System.out.println(strategies[i] + " vs " + strategyDescs[j]);
                 
                 if("Axelrod".equals(strategies[i]))
-                    player1 = new EncodedStrategySample();
+                    player1 = new StrategyAxelrod();
                 else
-                    player1 = new StrategySample(strategies[i]);
+                    player1 = new StrategyGolbeck(strategies[i]);
         
                 ipd = new IteratedPD(player1, players[j]);
 

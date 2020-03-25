@@ -82,14 +82,14 @@ public class Search
         Date startTime = dateAndTime.getTime();
 
         //  Read Parameter File
-        //System.out.println("\nParameter File Name is: " + args[0] + "\n");
-        //Parameters parmValues = new Parameters(args[0]);
+        System.out.println("\nParameter File Name is: " + args[0] + "\n");
+        Parameters parmValues = new Parameters(args[0]);
 
         //  Write Parameters To Summary Output File
         String summaryFileName = Parameters.expID + "_summary.txt";
         FileWriter summaryOutput = new FileWriter(summaryFileName);
-        //parmValues.outputParameters(summaryOutput);
-        Parameters.outputParameters(summaryOutput);
+        parmValues.outputParameters(summaryOutput);
+        parmValues.outputParameters(summaryOutput);
 
         //	Set up Fitness Statistics matrix
         fitnessStats = new double[2][Parameters.generations];

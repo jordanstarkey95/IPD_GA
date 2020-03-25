@@ -11,7 +11,7 @@ import java.util.Random;
  *
  * @author amlan
  */
-public class StrategySample extends Strategy
+public class StrategyGolbeck extends Strategy
 {
 
     int movesToRemember;
@@ -20,13 +20,12 @@ public class StrategySample extends Strategy
     int currentIndexP1;
     int currentIndexP2;
     
-    public StrategySample()
+    public StrategyGolbeck()
     {
-        this.strategicMoves = "0000";
-        this.setMemory();
+        this("0000");
     }
     
-    public StrategySample(String strategicMoves)
+    public StrategyGolbeck(String strategicMoves)
     {
         this.strategicMoves = strategicMoves;
         this.setMemory();
@@ -38,10 +37,7 @@ public class StrategySample extends Strategy
         this.memory = new int[this.movesToRemember*2];
         // Initially nothing is remembered.
         // So, the memory is initialized by -1.
-        for (int i = 0; i < memory.length; i++)
-        {
-            memory[i] = -1;
-        }
+        Arrays.fill(this.memory, -1);
         this.currentIndexP1 = 0;
         this.currentIndexP2 = this.movesToRemember;
     }

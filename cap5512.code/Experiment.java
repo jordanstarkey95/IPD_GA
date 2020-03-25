@@ -2,6 +2,7 @@ public class Experiment
 {
     public static void main(String[] args) throws java.io.IOException
     {
+        int s_type = 0;
         int[] memoryLengths = new int[]{3, 2, 1};
         double[] crossoverRates = new double[]{0.5, 0.9};
         double[] mutationRates = new double[]{0.5, 0.9};
@@ -20,7 +21,7 @@ public class Experiment
                         new Parameters(expID, 
                             10, 100, 100,
                             crossoverRate, mutationRate, 75982, 
-                            numGenes, n);
+                            numGenes, n, s_type);
                         Search.main(new String[]{});
                     }
                 }

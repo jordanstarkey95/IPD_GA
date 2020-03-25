@@ -13,6 +13,8 @@ Mutation Rate (6)            :0.5
 Random Number Seed           :75982
 Number of Genes/Points (7)   :4
 Size of Genes (18)           :1
+Number of Games              :64
+Strategy type                :0
 
 Notes:
 
@@ -39,3 +41,6 @@ Notes:
 
 8)	Determines number of bits in each gene.  Number of Genes times Size
 	gives the number of bits in each chromosome.
+
+9)  Two different strategies    0 = Golbeck's Strategy
+                                1 = Axelrod's Strategy

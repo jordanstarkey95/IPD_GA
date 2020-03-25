@@ -44,6 +44,7 @@ public class Parameters
     public static int geneSize;
     
     public static int numGames;
+    public static int strategyType;
 
     /**
      * *****************************************************************************
@@ -76,6 +77,8 @@ public class Parameters
         seed = Long.parseLong(parmInput.readLine().substring(30).trim());
         numGenes = Integer.parseInt(parmInput.readLine().substring(30).trim());
         geneSize = Integer.parseInt(parmInput.readLine().substring(30).trim());
+        numGames = Integer.parseInt(parmInput.readLine().substring(30).trim());
+        strategyType = Integer.parseInt(parmInput.readLine().substring(30).trim());
 
         parmInput.close();
 
@@ -90,7 +93,7 @@ public class Parameters
 
     }
 
-    public Parameters(String expID, int n, int g, int p, double x, double m, int s, int n_genes, int n_games)
+    public Parameters(String expID, int n, int g, int p, double x, double m, int s, int n_genes, int n_games, int s_type)
     {
         this.expID = expID;
         problemType = "IPD";
@@ -114,6 +117,7 @@ public class Parameters
         geneSize = 1;
         
         numGames = n_games;
+        strategyType = s_type;
 
         if (scaleType == 0 || scaleType == 2)
         {

@@ -38,6 +38,12 @@ public class IPDStrategy extends FitnessFunction
      * MEMBER METHODS *
 ******************************************************************************
      */
+    public Strategy followStrategy(String strategicMoves)
+    {
+        if(Parameters.strategyType == 0)
+            return new StrategyGolbeck(strategicMoves);
+        return new StrategyAxelrod(strategicMoves);
+    }
        
     //  COMPUTE A CHROMOSOME'S RAW FITNESS *************************************
     public void doRawFitness(Chromo[] member, int index)
@@ -50,8 +56,8 @@ public class IPDStrategy extends FitnessFunction
      
         for (int i = 0; i < Parameters.popSize; i++)
         {
-            player1 = new StrategySample(member[index].chromo);
-            player2 = new StrategySample(member[i].chromo);
+            player1 = followStrategy(member[index].chromo);
+            player2 = followStrategy(member[i].chromo);
             ipd = new IteratedPD(player1, player2);
 
             ipd.runSteps(numGames);
