@@ -1,5 +1,6 @@
 
 import java.util.Arrays;
+import java.util.Random;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -21,7 +22,7 @@ public class StrategySample extends Strategy
     
     public StrategySample()
     {
-        this.strategicMoves = "0100010110101000011001001111101000010011111001010101110100000000";
+        this.strategicMoves = "0000";
         this.setMemory();
     }
     
@@ -103,7 +104,7 @@ public class StrategySample extends Strategy
             if (memory[i] == -1)
             {
                 // Always cooperate
-                return 1;
+                //return 1;
                 /*
                 // Cooperate in the first move
                 if(i == 0)
@@ -111,6 +112,12 @@ public class StrategySample extends Strategy
                 // Follow opponent's last move
                 return memory[movesToRemember + (i-1)];
                 */
+                Random rand = new Random();
+                if(rand.nextDouble() <= 0.5)
+                    return 1;
+                else
+                    return 0;
+                
             }
             // Get the integer value of the move sequence in the memory
             strategyIndex += memory[i] * (int) (Math.pow(2, memory.length - (i + 1)));

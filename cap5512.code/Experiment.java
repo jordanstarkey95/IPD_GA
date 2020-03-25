@@ -1,12 +1,12 @@
-public class Experiment2
+public class Experiment
 {
     public static void main(String[] args) throws java.io.IOException
     {
-        int[] memoryLengths = new int[]{1, 2, 3};
-        double[] crossoverRates = new double[]{0.5, 0.8, 0.9};
-        double[] mutationRates = new double[]{0.001, 0.1, 0.5};
+        int[] memoryLengths = new int[]{3, 2, 1};
+        double[] crossoverRates = new double[]{0.5, 0.9};
+        double[] mutationRates = new double[]{0.5, 0.9};
         int[] numberOfGames = new int[]{100, 1000};
-
+        
         for (int memoryLength : memoryLengths)
         {
             int numGenes = (int)Math.pow(2, memoryLength*2);
