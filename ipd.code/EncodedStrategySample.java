@@ -25,7 +25,7 @@ public class EncodedStrategySample extends Strategy
 
     public EncodedStrategySample()
     {
-        this("0100010110101000011001001111101000010011111001010101110100000000");
+        this("0000");
     }
 
     public EncodedStrategySample(String strategicMoves)
@@ -43,7 +43,7 @@ public class EncodedStrategySample extends Strategy
             this.assumptions[i] = ran.nextInt(2);
         }
 
-        //System.out.println(strategicMoves);
+        //System.out.println(Arrays.toString(this.assumptions));
     }
 
     public void setMemory()
@@ -168,7 +168,6 @@ public class EncodedStrategySample extends Strategy
             index += multiple * Math.pow(4, base);
             base++;
         }
-        //System.out.println(index);
         int move = Character.getNumericValue(this.strategicMoves.charAt(index));
         return move;
     }
